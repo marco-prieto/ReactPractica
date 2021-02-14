@@ -10,14 +10,14 @@ const Banner = () => (
             <p>Pensamos en ayudarte a sorprender a la persona que mas quieres</p>
             {/* <!-- Botones --> */}
             <div className="s-main-center">
-                <a className="button s-mr-2 s-mb-2 m-mb-0">Botón 1</a>
-                <a className="button s-mb-2 m-mb-0">Botón 2</a>
+                <a className="button s-mr-2 s-mb-2 m-mb-0">Escribenos</a>
+                <a className="button s-mb-2 m-mb-0">Promociones</a>
             </div>
             </div>
             {/* <!-- Contenido de la columna 2 --> */}
             <div>
             <div className="img-container s-ratio-16-9">
-                <img className="s-radius-1" src="https://images.pexels.com/photos/870866/pexels-photo-870866.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+                <img className="s-radius-1" src="https://images.pexels.com/photos/870866/pexels-photo-870866.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>  
             </div>
             </div>
         </div>

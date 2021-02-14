@@ -6,7 +6,10 @@ import ConjuntoUnidades from '../Componentes/ConjuntoUnidades'
 const Inicio = () => (
     <>
         <Banner></Banner>
-        <ConjuntoUnidades></ConjuntoUnidades>
+        <div className="ed-grid">
+            <h1 className="center">Nuestras Promociones</h1>
+            <ConjuntoUnidades></ConjuntoUnidades>
+        </div>
     </>
 )
 export default Inicio

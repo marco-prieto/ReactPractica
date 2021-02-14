@@ -26,7 +26,7 @@ const Menu = () => (
                 </NavLink>
                 </li>
                 <li className="lg-mr-3">
-                <NavLink className="link s-column s-cross-center" to="/">
+                <NavLink className="link s-column s-cross-center" to="/nosotros">
                     <svg className="icon to-lg s-mb-0">
                     <use href="#studies"></use>
                     </svg>
@@ -34,7 +34,7 @@ const Menu = () => (
                 </NavLink>
                 </li>
                 <li className="lg-mr-3">
-                <NavLink className="link s-column s-cross-center" to="#">
+                <NavLink className="link s-column s-cross-center" to="/promociones">
                     <svg className="icon to-lg s-mb-0">
                     <use href="#courses"></use>
                     </svg>
@@ -42,7 +42,7 @@ const Menu = () => (
                 </NavLink>
                 </li>
                 <li>
-                <NavLink className="link s-column s-cross-center" to="#">
+                <NavLink className="link s-column s-cross-center" to="/contacto">
                     <svg className="icon to-lg s-mb-0">
                     <use href="#notes"></use>
                     </svg>
