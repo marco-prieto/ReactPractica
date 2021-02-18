@@ -1,55 +1,24 @@
-import React from 'react'
-import Unidades from './Unidades'
+import React, {useState,useEffect} from 'react'
+import CardUnidades from './CardUnidades'
+import axios from 'axios'
 
-const unid  = [
-    {
-        id: 1,
-        titulo : "Chocolates con fresas",
-        descripcion: "Deliciosos chocolates obtenidos del cacao mas exquisito que existe en este planeta importados del Grecia",
-        imagen : "https://images.pexels.com/photos/918327/pexels-photo-918327.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        precio: 75
 
-    },
-    {
-        id: 2,
-        titulo : "Tigre de peluche",
-        descripcion: "Deliciosos chocolates obtenidos del cacao mas exquisito que existe en este planeta importados del Grecia",
-        imagen : "https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        precio: 100
-
-    },
-    {
-        id: 3,
-        titulo : "Oso de peluche",
-        descripcion: "Deliciosos chocolates obtenidos del cacao mas exquisito que existe en este planeta importados del Grecia",
-        imagen : "https://images.pexels.com/photos/158109/kodiak-brown-bear-adult-portrait-wildlife-158109.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        precio: 50
-
-    },
-    {
-        id: 4,
-        titulo : "Globo Corazon",
-        descripcion: "Deliciosos chocolates obtenidos del cacao mas exquisito que existe en este planeta importados del Grecia",
-        imagen : "https://images.unsplash.com/photo-1519600728514-fb288e00037f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
-        precio: 80
-
-    },
-]
-
-const ConjuntoUnidades = () => (
+const ConjuntoUnidades = ({unidades}) => (
     <div className="ed-grid m-grid-4">
-        {
-            unid.map(u => 
-                <Unidades
-                key={u.id}
-                id={u.id}
-                titulo={u.titulo}
-                imagen={u.imagen}
-                precio={u.precio}
-                descripcion={u.descripcion}
-                />            
-            )
-        }
+                {
+                    
+                    unidades.map(u => 
+                        <CardUnidades
+                        key={u.id}
+                        id={u.id}
+                        titulo={u.titulo}
+                        imagen={u.imagen}
+                        precio={u.precio}
+                        descripcion={u.descripcion}
+                        />            
+                    )
+                }
     </div>
 )
+
 export default ConjuntoUnidades

@@ -1,10 +1,10 @@
 import React from 'react'
-import ConjuntoUnidades from '../Componentes/ConjuntoUnidades'
+import Unidades from '../Componentes/Unidades'
 
 const Promociones = () => (
     <div className="ed-grid">
         <h1 className="center">Promociones</h1>
-        <ConjuntoUnidades/>
+        <Unidades/>
     </div>
 )
 export default Promociones
