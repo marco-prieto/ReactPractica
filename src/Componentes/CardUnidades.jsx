@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
+import { addToCart, deleteFromCart } from '../redux/actionCreators'
+import {connect} from 'react-redux'
 
 const CardUnidades = (props) => (
     <article className="s-shadow-bottom">
@@ -24,14 +26,47 @@ const CardUnidades = (props) => (
         </div>
         <h4 className="s-mb-0">Precio</h4>
         {/* <!--Boton--> */}
-        <div className="button s-to-right">S/. {props.precio}</div>
+        <div className="button s-to-right">
+            {
+                props.cart.find( a => a === props.id) 
+
+                ?<button 
+                className="button"
+                onClick={() => props.deleteUnidadFromCart(props.id)}>
+                    Remover del carrito
+                </button>
+                :     
+                <button 
+                className="button"
+                onClick={() => props.addUnidadToCart(props.id)}>
+                    S/. {props.precio}
+                </button>            
+            }
+        </div>
     </footer>
 </article>
 )
-export default CardUnidades
+
+const mapStateToProps = state => (
+    {
+        cart:state.cartReducer.cart
+    }
+)
+//ahora tenemos estas 2 nuevas props q podemos usar
+const mapDispatchToProps = dispatch => (
+    {
+        addUnidadToCart (id){
+            dispatch(addToCart(id))
+        },
+        deleteUnidadFromCart(id){
+            dispatch(deleteFromCart(id))
+        }
+    }
+)
+export default connect(mapStateToProps,mapDispatchToProps)(CardUnidades)
 
 //En este caso no sirve los propTypes solo pa repasar
-CardUnidades.propTypes = {
+/* CardUnidades.propTypes = {
     titulo: PropTypes.string,
     imagen: PropTypes.string,
     precio: PropTypes.number,    
@@ -41,4 +76,4 @@ CardUnidades.defaultProps = {
     titulo: "Sin Titulo",
     imagen: "https://images.pexels.com/photos/1374125/pexels-photo-1374125.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     precio: 100,
-}
+} */

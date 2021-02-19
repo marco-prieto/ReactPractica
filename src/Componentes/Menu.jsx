@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link,NavLink} from 'react-router-dom'
+import CartCounter from './CartCounter'
 import Girasol from './girasol.svg'
 
 const Menu = () => (
@@ -41,7 +42,7 @@ const Menu = () => (
                     <span>Promociones</span>
                 </NavLink>
                 </li>
-                <li>
+                <li className="lg-mr-3">
                 <NavLink className="link s-column s-cross-center" to="/contacto">
                     <svg className="icon to-lg s-mb-0">
                     <use href="#notes"></use>
@@ -49,6 +50,7 @@ const Menu = () => (
                     <span>Contacto</span>
                 </NavLink>
                 </li>
+                <CartCounter/>
             </ul>
             </nav>
         </div>

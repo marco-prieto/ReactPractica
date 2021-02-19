@@ -19,7 +19,7 @@ const DetalleUnidad = ({match}) => {
             <br></br>
             <div className="ed-grid lg-grid-2 row-gap s-gap-2 m-gap-4">
                 <div className="s-column s-main-center lg-main-start lg-cross-start s-center lg-left ">
-                    <img className="m-cols-1 s-radius-1" src={unid.imagen}/>
+                    <img width="800px" height="500px" className="m-cols-1 s-radius-1" src={unid.imagen}/>
                 </div>
                 <div className="ed-grid">
                                         
