@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import ConjuntoUnidades from './ConjuntoUnidades'
+import {connect} from 'react-redux'
 
-const PrimerasUnidades = ({id}) => {
+/* const PrimerasUnidades = ({id}) => {
     const [unidades,setUnid] = useState([])
     
     useEffect(() => {
@@ -10,6 +11,14 @@ const PrimerasUnidades = ({id}) => {
     },[])
 
     return  <ConjuntoUnidades unidades={unidades}/>
-} 
+} */ 
 
- export default PrimerasUnidades
+const PrimerasUnidades = ({unidades}) => <ConjuntoUnidades unidades={unidades}/>
+
+const mapStateToProps = state => (
+    {
+        unidades: state.unidadesReducer.unidades.filter(u => u.id <= 4)
+    }
+)
+
+ export default connect(mapStateToProps,{})(PrimerasUnidades)

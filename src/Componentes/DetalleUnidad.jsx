@@ -2,14 +2,17 @@ import React, {useState,useEffect} from 'react'
 import ConjuntoUnidades from './ConjuntoUnidades'
 import axios from 'axios'
 import UnidadesSimilares from './UnidadesSimilares'
+import {connect} from 'react-redux'
 
 
-const DetalleUnidad = ({match}) => {
+const DetalleUnidad = (props => {
     const [unid,setUnid] = useState({})
+    
 
     useEffect(() => {
-        axios.get(`http://my-json-server.typicode.com/marco-prieto/json-db/unid/${match.params.id}`).then(resp => setUnid(resp.data))
+        axios.get(`http://my-json-server.typicode.com/marco-prieto/json-db/unid/${props.match.params.id}`).then(resp => setUnid(resp.data))
     },[])
+       
 
     return (
         unid ? (
@@ -36,7 +39,8 @@ const DetalleUnidad = ({match}) => {
             <br/>
             <div className="ed-grid">
                 <h2 className="center">Tambien te puede interesar</h2>
-                <UnidadesSimilares tipo={unid.tipo} id={unid.id}/>
+                {/* <UnidadesSimilares tipo={unid.tipo} id={unid.id}/> */}
+                <ConjuntoUnidades unidades={props.unidades.filter(u => u.tipo === unid.tipo && u.id != unid.id)}/>
             </div>
             </>
         ) :
@@ -46,7 +50,7 @@ const DetalleUnidad = ({match}) => {
             </div>
         )
     )
-}
+})
 
 /* class DetalleUnidad extends React.Component {
     
@@ -103,4 +107,9 @@ const DetalleUnidad = ({match}) => {
     }
 } */
 
-export default DetalleUnidad
+const mapStateToProps = state => (
+    {
+        unidades: state.unidadesReducer.unidades
+    }
+)
+export default connect(mapStateToProps,{})(DetalleUnidad)

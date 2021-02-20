@@ -1,8 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 import ConjuntoUnidades from './ConjuntoUnidades'
+import {connect} from 'react-redux'
 
-class Unidades extends React.Component {
+/* class Unidades extends React.Component {
     constructor(props){
         super(props)
 
@@ -21,5 +22,14 @@ class Unidades extends React.Component {
         const {unidades} = this.state
         return <ConjuntoUnidades unidades={unidades}/>
     }
-}
-export default Unidades
+} */
+
+const Unidades = ({unidades}) => <ConjuntoUnidades unidades={unidades}/>
+
+const mapStateToProps = state => (
+    {
+        unidades: state.unidadesReducer.unidades
+    }
+)
+
+export default connect(mapStateToProps,{})(Unidades)

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import ConjuntoUnidades from './ConjuntoUnidades'
+import {connect} from 'react-redux'
 
 /* class UnidadesSimilares extends React.Component {
     
@@ -32,16 +33,25 @@ import ConjuntoUnidades from './ConjuntoUnidades'
 }
 export default UnidadesSimilares */
 
-const UnidadesSimiliares = ({id,tipo}) => {
+const UnidadesSimiliares = (props) => {
     const [unidades,setUnid] = useState([])
     
     useEffect(() => {
-        axios.get('http://my-json-server.typicode.com/marco-prieto/json-db/unid').then(resp => setUnid(resp.data.filter(u => u.tipo === tipo && u.id !== id)))
+        axios.get('http://my-json-server.typicode.com/marco-prieto/json-db/unid').then(resp => setUnid(resp.data.filter(u => u.tipo === props.tipo && u.id !== props.id)))
     },[])
 
     return  <ConjuntoUnidades unidades={unidades}/>
 }
 
+/* const UnidadesSimiliares = ({id,tipo,unidades}) => <ConjuntoUnidades unidades={unidades}/>
+
+const mapStateToProps = state => (
+    {
+        unidades: state.unidadesReducer.unidades.filter(u => u.tipo === 2)
+    }
+) */
+
+/* export default connect(mapStateToProps,{})(UnidadesSimiliares) */
 export default UnidadesSimiliares
 
 //esto c probo en el componentDidMounth
